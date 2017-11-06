@@ -1,0 +1,67 @@
+<!doctype>
+<html>
+
+<head>
+    <title>javascript function</title>
+    <script>
+        //사용자정의함수
+        //형태1. function 명령 정의
+
+        function 함수명(인수1, 인수2, ... ){
+            처리할 내용;
+            return 반환값;
+        }
+
+        //형태1 Example
+        function getSquare(width, height) {
+            return width * height;
+        }
+
+        console.log('사각형 면적 값 : ' + getSquare(3, 5)); // 사각형 면적 값 : 15
+
+
+        //형태2. 내장객체 Function 사용
+
+        var 변수명 = new Function('인수', ..., '함수본체');
+
+        //형태2 Example
+        var getSquare = new Function('width','height','return width*height');
+                    //= new Function('width, height', 'return width*height'); 가인수부분을 한 개의 인수로 기술 가능
+        console.log('사각형 면적 값 : ' + getSquare(3, 5)); // 사각형 면적 값 : 15
+
+        //형태2 Example2 ; 문자열로 정의할 수 있는 유일한?장점
+        var param = 'height, width';
+        var square = 'return height * width';
+        var getSqaure = new Function(param, square);
+        console.log('사각형 면적 값 : ' + getSqaure(3, 5)); // 사각형 면적 값 : 15
+
+        //형태3. 함수 리터럴 = 무명함수 = 익명함수
+        var getSqaure = function(width, height){
+            return width * height;
+        };
+
+        console.log('사각형 면적 값 : ' + getSqaure(3, 5)); // 사각형 면적 값 : 15
+
+        //형태4. 애로우 함수 ***************** (ES6) ***************** // 간결 : function 키워드는 기술하지 않는다!
+        (인수, ... ) => { ... 함수내용 ... }
+
+        let getSquare = (width, height) => {
+            return width * height;
+        };
+
+        console.log('사각형 면적 값 : ' + getSquare(3, 5)); // 사각형 면적 값 : 15
+
+        //"더 간결하게!"
+            // 함수내용이 한문장인 경우 : 함수의 {} 괄호 생략, return 명령 생략
+            let getSquare = (width, height) => width * height;
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
